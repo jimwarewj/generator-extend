@@ -9,7 +9,7 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
        <!-- <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>-->
-        <plugin type="com.yao.invoice.comon.util.TopSerializablePlugin">
+        <plugin type="com.jimware.generator.comon.util.TopSerializablePlugin">
             <property name="entitiesTargetPackage" value="${gen.config.pojo.model.package}" />
             <!--是否生成QueryCondition接口实现类 -->
             <property name="condition" value="false"/>
@@ -17,14 +17,14 @@
             <property name="conditionPackage" value="${gen.config.java.page.condition.package}"/>
             <property name="conditionProject" value="${gen.config.java.page.condition.project}"/>
         </plugin>
-        <plugin type="com.yao.invoice.comon.util.RenamePlugin"></plugin>
+        <plugin type="com.jimware.generator.comon.util.RenamePlugin"></plugin>
         <plugin type="com.yao.invoice.comon.util.AnnotationPlugin">
             <property name="pageClass" value="${gen.config.java.page}"/>
             <property name="conditionDate" value="false"/>
         </plugin>
 
 
-        <commentGenerator type="com.yao.invoice.comon.util.DBCommentGenerator">
+        <commentGenerator type="com.jimware.generator.comon.util.DBCommentGenerator">
             <property name="suppressAllComments" value="true" />
         </commentGenerator>
         <!-- æ°æ®åºé¾æ¥URLãç¨æ·åãå¯ç  -->

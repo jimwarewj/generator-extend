@@ -1,4 +1,4 @@
-package com.yao.invoice.comon.util;
+package com.jimware.generator.comon.util;
 
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.IntrospectedColumn;

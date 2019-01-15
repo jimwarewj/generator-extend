@@ -1,4 +1,4 @@
-package com.yao.invoice.comon.util;
+package com.jimware.generator.comon.util;
 
 
 import org.mybatis.generator.api.MyBatisGenerator;
@@ -19,7 +19,7 @@ import java.util.List;
  * @author wangjing0131
  * @date 2017/12/29
  */
-public class MybatisGeneratorUtilForIDEA {
+public class MybatisGeneratorUtilForEclipse {
     public static void main(String[] args)
     {
         try
@@ -27,7 +27,7 @@ public class MybatisGeneratorUtilForIDEA {
             System.out.println("startgenerator ...");
             List<String> warnings = new ArrayList();
             boolean overwrite = true;
-            System.setProperty("gen.config.runtime.properties.name", "generatorForIDEA.properties");
+            System.setProperty("gen.config.runtime.properties.name", "generatorForEclipse.properties");
             ConfigurationParser cp = new ConfigurationParser(warnings);
 
             Configuration config =  cp.parseConfiguration(MybatisGeneratorUtilForIDEA.class.getClassLoader().getResourceAsStream("generatorConfig.xml"));

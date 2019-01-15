@@ -4,4 +4,4 @@ mybatis生成工具拓展
 2、原理就是继承PluginAdapter实现自已的逻辑
 3、MybatisGeneratorUtilForIDEA的main方法为入口，需要在resoures中配置数据库的一些信息
 还有实体类信息,generatorConfig.xml中大部分和mybatis-generator原始配置一样,稍作修改的是对应的配置路径
-以及一些参数。# generator-extend
+以及一些参数。

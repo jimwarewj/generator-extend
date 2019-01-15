@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="${gen.config.runtime.properties.name}"></properties>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <!--mergeable=false 表示不合并，而是直接覆盖-->
+        <property name="mergeable" value="false"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+       <!-- <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>-->
+        <plugin type="com.yao.invoice.comon.util.TopSerializablePlugin">
+            <property name="entitiesTargetPackage" value="${gen.config.pojo.model.package}" />
+            <!--是否生成QueryCondition接口实现类 -->
+            <property name="condition" value="false"/>
+            <property name="conditionClass" value="${gen.config.java.page.condition}"/>
+            <property name="conditionPackage" value="${gen.config.java.page.condition.package}"/>
+            <property name="conditionProject" value="${gen.config.java.page.condition.project}"/>
+        </plugin>
+        <plugin type="com.yao.invoice.comon.util.RenamePlugin"></plugin>
+        <plugin type="com.yao.invoice.comon.util.AnnotationPlugin">
+            <property name="pageClass" value="${gen.config.java.page}"/>
+            <property name="conditionDate" value="false"/>
+        </plugin>
+
+
+        <commentGenerator type="com.yao.invoice.comon.util.DBCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- æ°æ®åºé¾æ¥URLãç¨æ·åãå¯ç  -->
+        <!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/wcrm" userId="root" password="1234">
+             &lt;!&ndash;<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa"> &ndash;&gt;
+         </jdbcConnection>-->
+        <jdbcConnection driverClass="${test.driverClassName}" connectionURL="${test.url}" userId="${test.username}" password="${test.password}">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- çææ¨¡åçå
+ååä½ç½® -->
+        <javaModelGenerator targetPackage="${gen.config.pojo.model.package}" targetProject="${gen.config.pojo.model.project}">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+            <property name="constructorBased" value="false"/>
+        </javaModelGenerator>
+        <!-- çæçæ å°æä»¶å
+ååä½ç½® -->
+        <sqlMapGenerator targetPackage="${gen.config.sqlmap.package}" targetProject="${gen.config.sqlmap.project}">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!-- çæDAOçå
+ååä½ç½® -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${gen.config.java.client.package}" targetProject="${gen.config.java.client.project}">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!-- è¦çæé£äºè¡¨(æ´æ¹tableNameådomainObjectNameå°±å¯ä»¥) -->
+
+        <table tableName="re_invoice_split" domainObjectName="ReInvoiceSplit" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="false" enableDeleteByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"
+                          identity="true" />
+        </table>
+
+       <!--<table tableName="invoice_refund_info" domainObjectName="InvoiceRefundInfo" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"
+                          identity="true" />
+        </table>-->
+        <!-- <table tableName="invoice_wf_log" domainObjectName="InvoiceWfLog" >
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()"
+                          identity="true" />
+        </table> -->
+
+    </context>
+</generatorConfiguration>

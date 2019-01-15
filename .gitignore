@@ -1,0 +1,13 @@
+*.idea
+*.iml
+*.project
+*.MF
+*.launch
+.settings/
+*.classpath
+.svn
+target/
+build/
+diamond_config_data.log
+.externalToolBuilders/
+Thumbs.db

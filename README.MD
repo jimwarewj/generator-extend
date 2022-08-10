@@ -1,4 +1,4 @@
-mybatis生成工具拓展
+mybatis(3.2.8)生成工具拓展
 1、generator工程中,是生成工具类的核心,在mybatis-generator的基础上添加自己的一些拓展
 比如：mybatis分页查询,和查询单个,条件查询,添加日期起始日期查询等。
 2、原理就是继承PluginAdapter实现自已的逻辑
